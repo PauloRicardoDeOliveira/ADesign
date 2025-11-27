@@ -1,0 +1,90 @@
+// Cores
+$color-gold: #c5a47e;
+$color-moldura: #2a2a2a; // Cor da moldura externa (um tom de madeira escura/metal)
+$color-passepartout: #f8f5f0; // Um branco off-white/creme para o interior
+
+.text-gold { color: $color-gold; }
+.letter-spacing-2 { letter-spacing: 2px; }
+
+// Cabeçalho
+.header-museu {
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba($color-gold, 0.3);
+}
+
+// --- O QUADRO ---
+.quadro-moldura {
+  position: relative;
+  background-color: $color-moldura;
+  padding: 15px; // Espessura da moldura externa
+  // Sombra realista: uma sombra dura próxima para volume + uma sombra suave difusa para luz
+  box-shadow: 
+    0 4px 6px rgba(0,0,0,0.3), // Sombra de volume
+    0 15px 35px rgba(0,0,0,0.2); // Sombra de luz ambiente
+
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  // Efeito ao passar o mouse: o quadro "salta" da parede
+  &:hover {
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 
+      0 8px 12px rgba(0,0,0,0.3),
+      0 20px 50px rgba(0,0,0,0.3);
+  }
+}
+
+// --- O PASSE-PARTOUT (Borda Interna) ---
+.passe-partout {
+  background-color: $color-passepartout;
+  padding: 30px; // Largura da borda branca interna
+  // Sombra interna (inset) para dar profundidade, como se a imagem estivesse para dentro
+  box-shadow: inset 0 2px 8px rgba(0,0,0,0.2);
+}
+
+// --- A OBRA (Imagem) ---
+.obra-wrapper {
+  position: relative;
+  
+  img {
+    display: block;
+    width: 100%;
+    height: 250px; // Altura fixa para alinhar todos os quadros
+    object-fit: cover;
+    // Uma borda sutil na própria imagem
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  // (Opcional) Textura de tela sobre a imagem
+  .texture-overlay {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    // Você pode usar um PNG de textura de canvas transparente aqui se quiser
+    // background-image: url('/assets/textures/canvas.png'); 
+    opacity: 0.1;
+    pointer-events: none;
+  }
+}
+
+// --- PLACA DE IDENTIFICAÇÃO ---
+.placa-obra {
+  background-color: #f0f0f0; // Uma cor de metal/papel
+  padding: 10px 15px;
+  margin: 0 auto; // Centraliza
+  width: 80%; // Não ocupa a largura toda
+  border: 1px solid #ddd;
+  border-radius: 2px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1); // Sombra leve para parecer colada na parede
+
+  .obra-titulo {
+    font-family: 'Times New Roman', serif;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #333;
+  }
+  
+  .obra-local {
+    font-size: 0.75rem;
+    color: #777;
+    letter-spacing: 1px;
+  }
+}

@@ -1,1 +1,96 @@
-<p>projetos-construidos works!</p>
+<div class="text-center mb-5 header-museu">
+  <h6 class="text-uppercase letter-spacing-2 text-gold">Portfólio Exclusivo</h6>
+  
+  <h2 class="display-4 fw-bold">Acervo ADesign</h2> 
+  
+  <p class="text-muted mt-3" style="font-family: 'Times New Roman', serif; font-style: italic;">
+    "Exposição das obras que definem nosso traço."
+  </p>
+</div>
+
+
+<div class="container py-5">
+  <div class="row g-5 justify-content-center">
+    @for (item of projetos; track item.id) {
+      <div class="col-md-6 col-lg-4">
+        
+        <div class="quadro-moldura shadow-lg"
+             style="cursor: pointer;"
+             data-bs-toggle="modal" 
+             data-bs-target="#modalGaleria"
+             (click)="abrirModal(item)">
+             
+             <div class="passe-partout">
+                <div class="obra-wrapper">
+                  <img [src]="item.imagemCapa" class="img-fluid" [alt]="item.titulo">
+                </div>
+             </div>
+             
+             <div class="placa-obra mt-3 text-center">
+                <h5 class="obra-titulo mb-1">{{ item.titulo }}</h5>
+             </div>
+
+        </div>
+      </div>
+    }
+  </div>
+</div>
+
+<div class="modal fade" id="modalGaleria" tabindex="-1" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl">
+    <div class="modal-content bg-black border-0">
+      
+      <div class="modal-body p-0 position-relative">
+        
+        <button type="button" class="btn-close btn-close-white position-absolute top-0 end-0 m-4 z-3" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        @if (projetoSelecionado) {
+          
+          <div id="carouselProjetos" class="carousel slide">
+            
+            <div class="carousel-inner">
+              @for (media of projetoSelecionado.galeria; track $index; let isFirst = $first) {
+                
+                <div class="carousel-item" [class.active]="isFirst">
+                  
+                  <div class="d-flex align-items-center justify-content-center bg-black" style="min-height: 80vh;">
+                    
+                    @if (media.tipo === 'imagem') {
+                       <img [src]="media.url" class="img-fluid" style="max-height: 85vh;" alt="Detalhe">
+                    } 
+                    
+                    @else if (media.tipo === 'video') {
+                       <div class="ratio ratio-16x9 w-100" style="max-width: 90%;">
+                         <video [src]="media.url" controls class="w-100 h-100"></video>
+                       </div>
+                    }
+
+                  </div>
+                </div>
+              }
+            </div>
+
+            @if (projetoSelecionado.galeria.length > 1) {
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselProjetos" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselProjetos" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Próximo</span>
+              </button>
+            }
+
+          </div>
+
+          <div class="p-3 text-center text-white">
+            <h3 class="fw-light">{{ projetoSelecionado.titulo }}</h3>
+            <p class="small text-muted">{{ projetoSelecionado.localizacao }}</p>
+          </div>
+
+        }
+      </div>
+
+    </div>
+  </div>
+</div>
