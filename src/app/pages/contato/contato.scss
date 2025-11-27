@@ -1,0 +1,90 @@
+$color-gold: #c5a47e;
+$bg-dark: #111; // Fundo quase preto
+
+.contato-section {
+  background-color: $bg-dark;
+  position: relative;
+}
+
+.text-gold { color: $color-gold; }
+.letter-spacing-2 { letter-spacing: 2px; }
+
+// --- ÍCONES ---
+.icon-circle {
+  width: 50px;
+  height: 50px;
+  background-color: rgba(255,255,255,0.05); // Transparente
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: $color-gold;
+  font-size: 1.2rem;
+  transition: all 0.3s ease;
+}
+
+.info-item:hover .icon-circle {
+  background-color: $color-gold;
+  color: #000;
+  border-color: $color-gold;
+}
+
+// --- FORMULÁRIO ---
+.form-wrapper {
+  border-top: 5px solid $color-gold; // Detalhe de luxo no topo do form
+}
+
+// Customizando o Input do Bootstrap (Estilo Material Design)
+.form-control {
+  background: transparent;
+  border-bottom: 1px solid #ddd !important;
+  color: #333;
+  
+  &:focus {
+    box-shadow: none; // Remove o brilho azul padrão
+    border-bottom-color: $color-gold !important; // Vira dourado
+  }
+}
+
+// Quando o input tem foco, a label muda de cor
+.form-floating > .form-control:focus ~ label {
+  color: $color-gold;
+}
+
+// Botão de Enviar
+.btn-dark {
+  background-color: #000;
+  border: 1px solid #000;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: $color-gold;
+    border-color: $color-gold;
+    color: #000;
+    font-weight: bold;
+  }
+  
+  &:disabled {
+    background-color: #ccc;
+    border-color: #ccc;
+  }
+}
+
+// Animação de entrada
+.fade-in {
+  animation: fadeIn 0.5s ease-in;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+// Efeito no link do Instagram
+.hover-link {
+  transition: color 0.3s ease;
+  
+  &:hover {
+    color: $color-gold !important; // Fica dourado ao passar o mouse
+  }
+}

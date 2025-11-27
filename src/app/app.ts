@@ -4,10 +4,11 @@ import { Home } from './pages/home/home';
 import { AboutAd } from "./pages/about-ad/about-ad";
 import { AboutDionathanGomes } from "./pages/about-dionathan-gomes/about-dionathan-gomes";
 import { ProjetosConstruidos } from "./pages/projetos-construidos/projetos-construidos";
+import { ContatoComponent } from "./pages/contato/contato";
 
 @Component({
   selector: 'app-root',
-  imports: [Home, AboutAd, AboutDionathanGomes, ProjetosConstruidos],
+  imports: [Home, AboutAd, AboutDionathanGomes, ProjetosConstruidos, ContatoComponent],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

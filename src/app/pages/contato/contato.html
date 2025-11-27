@@ -1,1 +1,115 @@
-<p>contato works!</p>
+<div class="contato-section py-5">
+  <div class="container py-4">
+    
+    <div class="row g-5 align-items-center">
+      
+      <div class="col-lg-5 text-white">
+        <h6 class="text-gold text-uppercase letter-spacing-2 mb-3">Vamos conversar?</h6>
+        <h2 class="display-4 fw-bold mb-4">Inicie seu Projeto</h2>
+        <p class="lead text-white-50 mb-5">
+          Estamos prontos para transformar sua visão em realidade. Entre em contato para agendar uma consulta exclusiva.
+        </p>
+
+        <div class="info-item d-flex align-items-center mb-4">
+          <div class="icon-circle me-3">
+            <i class="bi bi-whatsapp"></i>
+          </div>
+          <div>
+            <p class="mb-0 text-white-50 text-uppercase small">WhatsApp</p>
+            <h5 class="fw-normal" 
+                 (click)="chamarNoWhatsapp()" 
+                style="cursor: pointer;" 
+                title="Clique para conversar no WhatsApp">
+          +55 (34) 9280-6136
+            </h5>
+          </div>
+        </div>
+
+        <div class="info-item d-flex align-items-center mb-4">
+          <div class="icon-circle me-3">
+            <i class="bi bi-envelope"></i>
+          </div>
+          <div>
+            <p class="mb-0 text-white-50 text-uppercase small">Email</p>
+            <h5 class="fw-normal">contato@adesign.com</h5>
+          </div>
+        </div>
+
+        <div class="info-item d-flex align-items-center">
+          <div class="icon-circle me-3">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+          <div>
+            <div class="info-item d-flex align-items-center">
+            
+                <i class="bi bi-instagram"></i>
+            </div>
+            <div>
+                <p class="mb-0 text-white-50 text-uppercase small">Siga-nos</p>
+                <h5 class="fw-normal">
+                <a href="https://instagram.com/ad_arquiteturaeinterioresudi" target="_blank" class="text-white text-decoration-none hover-link">
+                    @ad_arquiteturaeinterioresudi
+
+                </a>
+                </h5>
+            </div>
+            
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-lg-7">
+        <div class="form-wrapper bg-white p-5 shadow-lg">
+          
+          @if (enviado) {
+            <div class="alert alert-success text-center border-0 bg-success text-white mb-4 fade-in">
+              <i class="bi bi-check-circle-fill me-2"></i> Mensagem recebida! Entraremos em contato em breve.
+            </div>
+          }
+
+          <form (ngSubmit)="enviarFormulario()" #form="ngForm">
+            <div class="row g-3">
+              
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="text" class="form-control border-0 border-bottom rounded-0 ps-0" id="nome" placeholder="Nome" [(ngModel)]="dados.nome" name="nome" required>
+                  <label for="nome" class="ps-0 text-muted">Seu Nome</label>
+                </div>
+              </div>
+
+              <div class="col-md-6">
+                <div class="form-floating">
+                  <input type="tel" class="form-control border-0 border-bottom rounded-0 ps-0" id="telefone" placeholder="Telefone" [(ngModel)]="dados.telefone" name="telefone" required>
+                  <label for="telefone" class="ps-0 text-muted">Seu Telefone</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-floating mt-3">
+                  <input type="email" class="form-control border-0 border-bottom rounded-0 ps-0" id="email" placeholder="name@example.com" [(ngModel)]="dados.email" name="email" required email>
+                  <label for="email" class="ps-0 text-muted">Seu Email Corporativo</label>
+                </div>
+              </div>
+
+              <div class="col-12">
+                <div class="form-floating mt-3">
+                  <textarea class="form-control border-0 border-bottom rounded-0 ps-0" placeholder="Mensagem" id="mensagem" style="height: 100px" [(ngModel)]="dados.mensagem" name="mensagem" required></textarea>
+                  <label for="mensagem" class="ps-0 text-muted">Sobre o seu projeto...</label>
+                </div>
+              </div>
+
+              <div class="col-12 mt-4">
+                <button type="submit" class="btn btn-dark w-100 py-3 text-uppercase letter-spacing-2" [disabled]="!form.valid">
+                  Enviar Solicitação
+                </button>
+              </div>
+
+            </div>
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
