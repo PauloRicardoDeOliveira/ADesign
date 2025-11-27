@@ -1,0 +1,59 @@
+// Cores Personalizadas para este componente
+$color-gold: #c5a47e; // Um tom de bege/dourado elegante
+$color-dark: #2c2c2c;
+
+// Ajuste na Tipografia
+h2 {
+  color: $color-dark;
+  letter-spacing: -0.5px; // Deixa o título mais compacto e moderno
+}
+
+// Estilizando os destaques do texto (negrito)
+strong {
+  color: $color-dark;
+  font-weight: 700;
+}
+
+// Estilizando a lista de valores
+ul li {
+  margin-bottom: 1rem; // Mais espaço entre os itens
+  font-size: 1.05rem;
+  
+  // Customizando o ícone do Bootstrap
+  i {
+    color: $color-gold !important; // Sobrescreve o azul padrão
+    font-size: 1.2rem;
+  }
+}
+
+// --- EFEITO ESPECIAL NA IMAGEM (Moldura Deslocada) ---
+.image-wrapper {
+  position: relative;
+  padding: 1rem; // Espaço para a borda aparecer
+  
+  // A imagem em si
+  img {
+    position: relative;
+    z-index: 2; // Fica na frente
+    border-radius: 4px;
+    transition: transform 0.3s ease;
+  }
+
+  // A "Borda" decorativa atrás da imagem
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0; // Se quiser a borda na direita, mude para right: 0
+    width: 80%; // Não ocupa a largura toda
+    height: 90%;
+    border: 2px solid $color-gold; // A cor da borda
+    z-index: 1; // Fica atrás
+    border-radius: 4px;
+  }
+
+  // Pequeno efeito ao passar o mouse
+  &:hover img {
+    transform: translate(5px, -5px); // Move levemente a imagem
+  }
+}

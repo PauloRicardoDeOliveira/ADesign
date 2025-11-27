@@ -1,0 +1,14 @@
+// 1. Remova as aspas de fora e adicione a barra / no começo
+
+.hero-section {
+  position: relative;
+  height: 90vh; // Garante que o container tenha altura
+  width: 100%;
+  
+  // 2. Aplica a variável
+  background-image: url("/assets/images/profile/Dionathan.jpg");
+  
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
