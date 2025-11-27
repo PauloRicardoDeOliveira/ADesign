@@ -1,0 +1,70 @@
+$color-gold: #c5a47e;
+$color-dark: #2c2c2c;
+
+// Título com o nome
+h2 {
+  color: $color-dark;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+// Subtítulo (Cargo)
+.subtitle {
+  color: $color-gold;
+  font-family: 'Times New Roman', serif; // Uma fonte serifada dá um toque clássico/chique
+  font-style: italic;
+  font-size: 1.5rem;
+}
+
+// --- CONTAINER DA FOTO ---
+.profile-wrapper {
+  position: relative;
+  
+  // A Foto Principal
+  .profile-img {
+    border-radius: 0; // Quadrada para ar mais sério/moderno
+    filter: grayscale(20%); // Um leve preto e branco para estilo
+    transition: filter 0.3s ease;
+    
+    &:hover {
+      filter: grayscale(0%); // Fica colorida ao passar o mouse
+    }
+  }
+
+  // --- CARD FLUTUANTE DE ESTATÍSTICAS ---
+  .stats-card {
+    position: absolute;
+    bottom: -30px; // Sai um pouco para baixo da imagem
+    right: -20px;  // Sai um pouco para a direita
+    background-color: white;
+    padding: 2rem;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1); // Sombra suave
+    border-left: 4px solid $color-gold; // Detalhe dourado
+    min-width: 200px;
+
+    .number {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: $color-dark;
+      line-height: 1;
+    }
+
+    .label {
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      color: #777;
+      letter-spacing: 1px;
+    }
+  }
+}
+
+// Em telas pequenas (celular), ajusta o card para não quebrar
+@media (max-width: 768px) {
+  .profile-wrapper .stats-card {
+    position: relative; // Deixa de flutuar
+    bottom: 0;
+    right: 0;
+    margin-top: -20px;
+    width: 100%;
+  }
+}
